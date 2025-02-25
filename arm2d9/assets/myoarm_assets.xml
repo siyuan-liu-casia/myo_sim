@@ -1,0 +1,258 @@
+﻿<mujocoinclude model="MyoArm_v0.01">
+<!-- =================================================
+	Copyright 2023 Vikash Kumar, Vittorio Caggiano
+	Model	:: MyoArm (MuJoCoV2.0)
+	Author	:: Vikash Kumar (vikashplus@gmail.com), Vittorio Caggiano
+	source	:: https://github.com/vikashplus
+	License	:: Under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+====================================================== -->
+
+  <compiler inertiafromgeom="auto" angle="radian" balanceinertia="true" boundmass="0.001" boundinertia=".0001" meshdir=".." texturedir=".."/>
+  <size njmax="1000" nconmax="400" nuser_jnt="1"/>
+  <option timestep="0.002"/>
+
+  <visual>
+    <headlight diffuse="1 1 1"/>
+    <scale actuatorwidth=".075"/>
+  </visual>
+
+    <default class="main">
+        <geom contype="0" conaffinity="0"/>
+        <tendon rgba="0.95 0.3 0.3 41" width="0.001"/>
+        <default class="arm">
+            <joint limited="true" damping="1.05" armature="1e-4" stiffness="0"/>
+            <geom margin="0.001" rgba="0.8 0.8 0.8 1" contype="0" conaffinity="0"/>
+            <site size="0.0025" group="2"/>
+            <tendon rgba="0.95 0.3 0.3 41" width="0.003"/>
+            <default class="muscle">
+                <general biasprm="0.75 1.05 -1 200 0.5 1.6 1.5 1.3 1.2 0" biastype="muscle" ctrllimited="true" ctrlrange="0 1" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" dyntype="muscle" gainprm="0.75 1.05 -1 200 0.5 1.6 1.5 1.3 1.2 0" gaintype="muscle"/>
+            </default>
+            <default class="myohand_coll">
+                <geom type="capsule" group="4" contype="1" conaffinity="0" condim="3" rgba="0.8 0.7 .5 1" margin="0.001" material="MatSkin"/>
+            </default>
+            <default class="myoarm_coll">
+                <geom type="capsule" group="4" contype="1" conaffinity="0" condim="3" rgba="0.8 0.7 .5 1" margin="0.001" material="MatSkin"/>
+            </default>
+            <default class="wrap">
+                <geom group="3" rgba="0.19 0.83 0.78 0.2"/>
+            </default>
+            <default class="marker">
+                 <site rgba="1 0.1 0.5 0.5" size="0.001" group="4"/>
+            </default>
+        </default>
+        <default class="upperarm_muscle">
+            <general biasprm="0.75 1.05 -1 200 0.5 1.6 1.5 1.3 1.2 0" biastype="muscle" ctrllimited="true" ctrlrange="0 1" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" dyntype="muscle" gainprm="0.75 1.05 -1 200 0.5 1.6 1.5 1.3 1.2 0" gaintype="muscle"/>
+            <tendon rgba="0.95 0.3 0.3 41" width="0.007"/>
+        </default>
+        <default class="forearm_muscle">
+            <muscle ctrllimited="true" ctrlrange="0 1" />
+            <tendon rgba="0.95 0.3 0.3 41" width="0.002"/>
+        </default>
+        <default class="elbow">
+            <joint limited="true" damping="0.75" armature="1e-4" stiffness="0"/>
+            <geom margin="0.001" rgba="0.8 0.8 0.8 1" contype="0" conaffinity="0"/>
+            <site size="0.0025" group="2"/>
+            <tendon rgba="0.95 0.3 0.3 41" width="0.002"/>
+        </default>
+        <default class="wrist">
+            <joint limited="true" damping=".05" armature="1e-4" stiffness="0"/>
+            <geom margin="0.001" rgba="0.8 0.8 0.8 1" contype="0" conaffinity="0"/>
+            <site size="0.0025" group="2"/>
+            <tendon rgba="0.95 0.3 0.3 41" width="0.002"/>
+        </default>
+        <default class="fingers">
+            <joint limited="true" damping=".05" armature="1e-4" stiffness="0"/>
+            <geom margin="0.001" rgba="0.8 0.8 0.8 1" contype="0" conaffinity="0"/>
+            <site size="0.0025" group="2"/>
+        </default>
+
+    </default>
+
+    <asset>
+        <mesh file="../myo_sim/meshes/thorax.stl" name="ground_geom_1_thorax"/>
+        <mesh file="../myo_sim/meshes/clavicle.stl" name="clavicle_geom_1_clavicle"/>
+        <mesh file="../myo_sim/meshes/scapula.stl" name="scapula_geom_1_scapula"/>
+        <mesh file="../myo_sim/meshes/humerus.stl" name="humerus_geom_1_humerus"/>
+        <mesh file="../myo_sim/meshes/ulna.stl" name="ulna_geom_1_ulna"/>
+        <mesh file="../myo_sim/meshes/radius.stl" name="radius_geom_1_radius"/>
+        <mesh file="../myo_sim/meshes/lunate.stl" name="proximal_row_geom_1_lunate"/>
+        <mesh file="../myo_sim/meshes/scaphoid.stl" name="proximal_row_geom_2_sdfastSCAPHOIDw"/>
+        <mesh file="../myo_sim/meshes/pisiform.stl" name="proximal_row_geom_3_sdfastPISIFORMw"/>
+        <mesh file="../myo_sim/meshes/triquetrum.stl" name="proximal_row_geom_4_sdfastTRIQUETRALw"/>
+
+        <mesh name="thorax" file="../myo_sim/meshes/thorax.stl" scale="1 1 1"/>
+        <mesh name="clavicle" file="../myo_sim/meshes/clavicle.stl" scale="1 1 1"/>
+        <mesh name="scapula" file="../myo_sim/meshes/scapula.stl" scale="1 1 1"/>
+        <mesh name="humerus" file="../myo_sim/meshes/humerus.stl" scale="1 1 1"/>
+        <mesh name="ulna" file="../myo_sim/meshes/ulna.stl" scale="1 1 1"/>
+        <mesh name="radius" file="../myo_sim/meshes/radius.stl" scale="1 1 1"/>
+        <mesh name="lunate" file="../myo_sim/meshes/lunate.stl" scale="1 1 1"/>
+        <mesh name="scaphoid" file="../myo_sim/meshes/scaphoid.stl" scale="1 1 1"/>
+        <mesh name="pisiform" file="../myo_sim/meshes/pisiform.stl" scale="1 1 1"/>
+        <mesh name="triquetrum" file="../myo_sim/meshes/triquetrum.stl" scale="1 1 1"/>
+        <mesh name="capitate" file="../myo_sim/meshes/capitate.stl" scale="1 1 1"/>
+        <mesh name="trapezium" file="../myo_sim/meshes/trapezium.stl" scale="1 1 1"/>
+        <mesh name="1mc" file="../myo_sim/meshes/1mc.stl" scale="1 1 1"/>
+        <mesh name="thumbprox" file="../myo_sim/meshes/thumbprox.stl" scale="1 1 1"/>
+        <mesh name="thumbdist" file="../myo_sim/meshes/thumbdist.stl" scale="1 1 1"/>
+        <mesh name="trapezoid" file="../myo_sim/meshes/trapezoid.stl" scale="1 1 1"/>
+        <mesh name="hamate" file="../myo_sim/meshes/hamate.stl" scale="1 1 1"/>
+        <mesh name="2mc" file="../myo_sim/meshes/2mc.stl" scale="1 1 1"/>
+        <mesh name="2proxph" file="../myo_sim/meshes/2proxph.stl" scale="1 1 1"/>
+        <mesh name="2midph" file="../myo_sim/meshes/2midph.stl" scale="1 1 1"/>
+        <mesh name="2distph" file="../myo_sim/meshes/2distph.stl" scale="1 1 1"/>
+        <mesh name="3mc" file="../myo_sim/meshes/3mc.stl" scale="1 1 1"/>
+        <mesh name="3proxph" file="../myo_sim/meshes/3proxph.stl" scale="1 1 1"/>
+        <mesh name="3midph" file="../myo_sim/meshes/3midph.stl" scale="1 1 1"/>
+        <mesh name="3distph" file="../myo_sim/meshes/3distph.stl" scale="1 1 1"/>
+        <mesh name="4mc" file="../myo_sim/meshes/4mc.stl" scale="1 1 1"/>
+        <mesh name="4proxph" file="../myo_sim/meshes/4proxph.stl" scale="1 1 1"/>
+        <mesh name="4midph" file="../myo_sim/meshes/4midph.stl" scale="1 1 1"/>
+        <mesh name="4distph" file="../myo_sim/meshes/4distph.stl" scale="1 1 1"/>
+        <mesh name="5mc" file="../myo_sim/meshes/5mc.stl" scale="1 1 1"/>
+        <mesh name="5proxph" file="../myo_sim/meshes/5proxph.stl" scale="1 1 1"/>
+        <mesh name="5midph" file="../myo_sim/meshes/5midph.stl" scale="1 1 1"/>
+        <mesh name="5distph" file="../myo_sim/meshes/5distph.stl" scale="1 1 1"/>
+
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .19 .2" rgb2=".1 0.11 0.11" width="50" height="50"/>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278" rgb1="0.7 0.7 0.7" rgb2="0.9 0.9 0.9" markrgb="1 1 1" random="0.01"/>
+        <material name="MatPlane" reflectance="0.5" texture="texplane" texrepeat="4 4" texuniform="true"/>
+        <material name="geom" texture="texgeom" texuniform="true"/>
+        <material name="MatSkin" specular="0.2" shininess=".1" reflectance="0.5" rgba="0.9 .7 .5 1"/>
+    </asset>
+
+    <contact>
+        <pair geom1="humerus_coll" geom2="thorax_coll0" condim="3"/>
+        <pair geom1="humerus_coll" geom2="thorax_coll1" condim="3"/>
+        <pair geom1="radius_coll" geom2="thorax_coll0" condim="3"/>
+        <pair geom1="radius_coll" geom2="thorax_coll1" condim="3"/>
+        <pair geom1="radius_coll" geom2="thorax_coll2" condim="3"/>
+        <pair geom1="radius_coll" geom2="thorax_coll3" condim="3"/>
+       <exclude body1="ulna" body2="radius"/>
+        <exclude body1="radius" body2="firstmc"/>
+        <exclude body1="proxph2" body2="proxph3"/>
+        <exclude body1="proxph3" body2="proxph4"/>
+        <exclude body1="proxph4" body2="proxph5"/>
+    </contact>
+
+    <equality>
+        <joint joint1="sternoclavicular_r2" joint2="shoulder_elv" name="sternoclavicular_r2_con" polycoef="0 -0.242 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="sternoclavicular_r3" joint2="shoulder_elv" name="sternoclavicular_r3_con" polycoef="0 0.1025 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="unrotscap_r2" joint2="shoulder_elv" name="unrotscap_r2_con" polycoef="0 0.242 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="unrotscap_r3" joint2="shoulder_elv" name="unrotscap_r3_con" polycoef="0 -0.1025 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="acromioclavicular_r1" joint2="shoulder_elv" name="acromioclavicular_r1_con" polycoef="0 0.178 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="acromioclavicular_r2" joint2="shoulder_elv" name="acromioclavicular_r2_con" polycoef="0 -0.049 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="acromioclavicular_r3" joint2="shoulder_elv" name="acromioclavicular_r3_con" polycoef="0 0.396 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="unrothum_r1" joint2="shoulder_elv" name="unrothum_r1_con" polycoef="0 -0.178 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="unrothum_r2" joint2="shoulder_elv" name="unrothum_r2_con" polycoef="0 0.049 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="unrothum_r3" joint2="shoulder_elv" name="unrothum_r3_con" polycoef="0 -0.396 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="shoulder1_r2" joint2="elv_angle" name="shoulder1_r2_con" polycoef="0 -1 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    </equality>
+
+    <tendon>
+        <spatial name="s_glenohum_ligament" springlength="0.0448">
+            <site site="s_glenohum_s_glenohum-P1"/>
+            <geom geom="LIGhh_s_ellipsoid_s_glenohum" sidesite="LIGhh_s_ellipsoid_s_glenohum_1_sidesite"/>
+            <site site="s_glenohum_s_glenohum-P2"/>
+        </spatial>
+        <spatial name="m_glenohum_ligament" springlength="0.0452">
+            <site site="m_glenohum_m_glenohum-P1"/>
+            <geom geom="LIGhh_mi_ellipsoid_m_glenohum" sidesite="LIGhh_mi_ellipsoid_m_glenohum_1_sidesite"/>
+            <site site="m_glenohum_m_glenohum-P2"/>
+        </spatial>
+        <spatial name="i_glenohum_ligament" springlength="0.0421">
+            <site site="i_glenohum_i_glenohum-P1"/>
+            <geom geom="LIGhh_mi_ellipsoid_i_glenohum" sidesite="LIGhh_mi_ellipsoid_i_glenohum_1_sidesite"/>
+            <site site="i_glenohum_i_glenohum-P2"/>
+        </spatial>
+        <spatial name="coracohum_ligament" springlength="0.0501">
+            <site site="coracohum_coracohum-P1"/>
+            <geom geom="LIGhh_s_ellipsoid_coracohum" sidesite="LIGhh_s_ellipsoid_coracohum_1_sidesite"/>
+            <site site="coracohum_coracohum-P2"/>
+        </spatial>
+        <spatial name="DELT1_tendon" class="upperarm_muscle">
+            <site site="DELT1_DELT1-P1"/>
+            <site site="DELT1_DELT1-P2"/>
+            <geom geom="DELT1hh_ellipsoid_DELT1" sidesite="DELT1hh_ellipsoid_DELT1_2_sidesite"/>
+            <site site="DELT1_DELT1-P3"/>
+            <site site="DELT1_DELT1-P4"/>
+        </spatial>
+        <spatial name="DELT3_tendon" class="upperarm_muscle">
+            <site site="DELT3_DELT3-P1"/>
+            <geom geom="Delt3_torus" sidesite="Delt3_torus_DELT3_1_sidesite"/>
+            <site site="DELT3_DELT3-P2"/>
+            <geom geom="delt3hum_ellipsoid_DELT3" sidesite="delt3hum_ellipsoid_DELT3_2_sidesite"/>
+            <site site="DELT3_DELT3-P3"/>
+        </spatial>
+        <spatial name="TMIN_tendon" class="upperarm_muscle">
+            <site site="TMIN_TMIN-P1"/>
+            <site site="TMIN_TMIN-P2"/>
+            <site site="TMIN_TMIN-P3"/>
+        </spatial>
+        <spatial name="PECM2_tendon" class="upperarm_muscle">
+            <site site="PECM2_PECM2-P1"/>
+            <geom geom="PEC12hum_cylinder" sidesite="PEC12hum_cylinder_PECM2_1_sidesite"/>
+            <site site="PECM2_PECM2-P2"/>
+            <geom geom="TMAJ_LAT_PEC_CORBhh_sphere" />
+            <site site="PECM2_PECM2-P3"/>
+            <geom geom="Thorax_ellipsoid_PECM2" sidesite="Thorax_ellipsoid_PECM2_3_sidesite"/>
+            <site site="PECM2_PECM2-P4"/>
+        </spatial>
+        <spatial name="TRIlong_tendon" class="upperarm_muscle">
+            <site site="TRIlong_TRIlong-P1"/>
+            <geom geom="TRIlonghh_ellipsoid_TRIlong" />
+            <site site="TRIlong_TRIlong-P1b" />
+            <site site="TRIlong_TRIlong-P2"/>
+            <site site="TRIlong_TRIlong-P3"/>
+            <site site="TRIlong_TRIlong-P4"/>
+            <geom geom="TRI_cylinder" sidesite="TRI_cylinder_TRIlong_4_sidesite"/>
+            <site site="TRIlong_TRIlong-P5"/>
+        </spatial>
+        <spatial name="TRIlat_tendon" class="upperarm_muscle">
+            <site site="TRIlat_TRIlat-P1"/>
+            <site site="TRIlat_TRIlat-P2"/>
+            <site site="TRIlat_TRIlat-P3"/>
+            <site site="TRIlat_TRIlat-P4"/>
+            <geom geom="TRI_cylinder" sidesite="TRI_cylinder_TRIlat_4_sidesite"/>
+            <site site="TRIlat_TRIlat-P5"/>
+        </spatial>
+        <spatial name="BIClong_tendon" class="upperarm_muscle">
+            <site site="BIClong_BIClong-P1"/>
+            <site site="BIClong_BIClong-P2"/>
+            <geom geom="BIClong_ellipsoid_BIClong" sidesite="BIClong_ellipsoid_BIClong_2_sidesite"/>
+            <site site="BIClong_BIClong-P3"/>
+            <site site="BIClong_BIClong-P4"/>
+            <site site="BIClong_BIClong-P5"/>
+            <site site="BIClong_BIClong-P6"/>
+            <site site="BIClong_BIClong-P7"/>
+            <site site="BIClong_BIClong-P8"/>
+            <geom geom="Elbow_BIC_BRD_ellipsoid_BIClong" sidesite="Elbow_BIC_BRD_ellipsoid_BIClong_7_sidesite"/>
+            <site site="BIClong_BIClong-P10"/>
+            <site site="BIClong_BIClong-P11"/>
+        </spatial>
+        <spatial name="BRA_tendon" class="upperarm_muscle">
+            <site site="BRA_BRA-P1"/>
+            <geom geom="TRI_cylinder" sidesite="TRI_site_BRA_side"></geom>
+            <site site="BRA_BRA-P4"/>
+        </spatial>
+        <spatial name="BRD_tendon" class="upperarm_muscle">
+            <site site="BRD_BRD-P1"/>
+            <geom geom="ElbowBICBRD_ellipsoid_wrap" sidesite="Elbow_BIC_BRD_ellipsoid_BICshort_5_sidesite"/>
+            <site site="BRD_BRD-P2"/>
+            <site site="BRD_BRD-P3"/>
+        </spatial>
+    </tendon>
+
+    <actuator>
+        <general name="DELT1" tendon="DELT1_tendon" biasprm="0.33707 1.53316 1051.85 1 0 1.8 10 0.518315 1.4 0" class="upperarm_muscle" gainprm="0.33707 1.53316 1051.85 1 0 1.8 10 0.518315 1.4 0" lengthrange="0.123363 0.240922"/>
+        <general name="DELT3" tendon="DELT3_tendon" biasprm="0.236598 1.33978 163.23 1 0 1.8 10 0.873711 1.4 0" class="upperarm_muscle" gainprm="0.236598 1.33978 163.23 1 0 1.8 10 0.873711 1.4 0" lengthrange="0.0701623 0.192737"/>
+        <general name="TMIN" tendon="TMIN_tendon" biasprm="0.73477 1.3801 539 1 0 1.8 10 1.25396 1.4 0" class="upperarm_muscle" gainprm="0.73477 1.3801 539 1 0 1.8 10 1.25396 1.4 0" lengthrange="0.107634 0.196342"/>
+        <general name="PECM2" tendon="PECM2_tendon" biasprm="0.491843 1.46175 570.669 1 0 1.8 10 0.321921 1.4 0" class="upperarm_muscle" gainprm="0.491843 1.46175 570.669 1 0 1.8 10 0.321921 1.4 0" lengthrange="0.143031 0.26756"/>
+        <general name="TRIlong" tendon="TRIlong_tendon" biasprm="0.692589 1.5232 670.069 1 0 1.8 10 1.87109 1.4 0" class="upperarm_muscle" gainprm="0.692589 1.5232 670.069 1 0 1.8 10 1.87109 1.4 0" lengthrange="0.244705 0.39348"/>
+        <general name="TRIlat" tendon="TRIlat_tendon" biasprm="0.53832 1.29451 682.224 1 0 1.8 10 1.16899 1.4 0" class="upperarm_muscle" gainprm="0.53832 1.29451 682.224 1 0 1.8 10 1.16899 1.4 0" lengthrange="0.16661 0.214704"/>
+        <general name="BIClong" tendon="BIClong_tendon" biasprm="0.297699 1.6 421.718 1 0 1.8 10 1.1404 1.4 0" class="upperarm_muscle" gainprm="0.297699 1.6 421.718 1 0 1.8 10 1.1404 1.4 0" lengthrange="0.314572 0.480222"/>
+        <general name="BRA" tendon="BRA_tendon" biasprm="0.526201 1.21956 1168.76 1 0 1.8 10 0.920725 1.4 0" class="upperarm_muscle" gainprm="0.526201 1.21956 1168.76 1 0 1.8 10 0.920725 1.4 0" lengthrange="0.105976 0.14593"/>
+        <general name="BRD" tendon="BRD_tendon" biasprm="0.130305 1.37938 272.486 1 0 1.8 10 0.93764 1.4 0" class="upperarm_muscle" gainprm="0.130305 1.37938 272.486 1 0 1.8 10 0.93764 1.4 0" lengthrange="0.200364 0.32774"/>
+     </actuator>
+
+</mujocoinclude>

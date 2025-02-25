@@ -108,7 +108,7 @@
 
 
   <tendon>
-    <spatial name="TRIlong_tendon" springlength="0.143">
+    <spatial name="TRIlong_tendon" rgba="0.95 0.3 0.3 41" springlength="0.143">
       <site site="TRIlong-P1"></site>
       <geom geom="TRIlonghh_wrap" sidesite="TRIlonghh_site_TRIlong_side"></geom>
       <site site="TRIlong-P2"></site>
@@ -117,7 +117,7 @@
       <geom geom="TRI_wrap" sidesite="TRI_site_TRIlong_side"></geom>
       <site site="TRIlong-P5"></site>
     </spatial>
-    <spatial name="TRIlat_tendon" springlength="0.098">
+    <spatial name="TRIlat_tendon" rgba="0.95 0.3 0.3 41" springlength="0.098">
       <site site="TRIlat-P1"></site>
       <site site="TRIlat-P2"></site>
       <site site="TRIlat-P3"></site>
@@ -125,7 +125,7 @@
       <geom geom="TRI_wrap" sidesite="TRI_site_TRIlat_side"></geom>
       <site site="TRIlat-P5"></site>
     </spatial>
-    <spatial name="TRImed_tendon" springlength="0.0908">
+    <spatial name="TRImed_tendon" rgba="0.95 0.3 0.3 41" springlength="0.0908">
       <site site="TRImed-P1"></site>
       <site site="TRImed-P2"></site>
       <site site="TRImed-P3"></site>
@@ -133,7 +133,7 @@
       <geom geom="TRI_wrap" sidesite="TRI_site_TRImed_side"></geom>
       <site site="TRImed-P5"></site>
     </spatial>
-    <spatial name="BIClong_tendon" springlength="0.2723">
+    <spatial name="BIClong_tendon" rgba="0.95 0.3 0.3 41" springlength="0.2723">
       <site site="BIClong-P1"></site>
       <site site="BIClong-P2"></site>
       <geom geom="BIClonghh_wrap" sidesite="BIClonghh_site_BIClong_side"></geom>
@@ -145,7 +145,7 @@
       <site site="BIClong-P8"></site>
       <site site="BIClong-P9"></site>
     </spatial>
-    <spatial name="BICshort_tendon" springlength="0.1923">
+    <spatial name="BICshort_tendon" rgba="0.95 0.3 0.3 41" springlength="0.1923">
       <site site="BICshort-P1"></site>
       <site site="BICshort-P2"></site>
       <site site="BICshort-P3"></site>
@@ -153,7 +153,7 @@
       <site site="BICshort-P5"></site>
       <site site="BICshort-P6"></site>
     </spatial>
-    <spatial name="BRA_tendon" springlength="0.0535">
+    <spatial name="BRA_tendon" rgba="0.95 0.3 0.3 41" springlength="0.0535">
       <site site="BRA-P1"></site>
       <geom geom="TRI_wrap" sidesite="TRI_site_BRA_side"></geom>
       <site site="BRA-P2"></site>
