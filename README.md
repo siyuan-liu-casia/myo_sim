@@ -1,7 +1,8 @@
 # <img  style="float: left;" src="https://user-images.githubusercontent.com/23240128/233209820-821715e0-07e6-4dbc-8133-d915a7ea06b7.png" width=40> MyoSim: MyoSuite's musculoskeletal model library
 
  `MyoSim` is the library of MuJoCo Musculoskeletal Models of [MyoSuite](https://github.com/facebookresearch/myoSuite).
-Here is the improved version, featuring two simplified variants of the myoarm model.
+
+<span style="color: red;">Here is the improved version, featuring two simplified variants of the myoarm model.</span>
 
 The models present in the library are:
 
