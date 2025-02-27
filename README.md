@@ -11,9 +11,9 @@ The models present in the library are:
 | **MyoElbow**  <br> - 2 Degree of Freedom (DoF) <br> - 6 muscles | <img src="https://user-images.githubusercontent.com/23240128/232323890-6a601a82-1d3c-4e12-901c-0fd9cf232691.png" width="200">|
 | **MyoHand**  <br>  - 23 Degree of Freedom (DoF) <br> - 39 muscles | <img src="https://user-images.githubusercontent.com/23240128/232323950-39552200-614b-4c73-aab5-8a78daa0f5f3.png" width="200">|
 | **MyoLeg**  <br>  - 20 Degree of Freedom (DoF) <br> - 80 muscles | <img src="https://user-images.githubusercontent.com/12837145/236839645-e34eab3f-0358-4ca8-8ae0-68a5c08585e4.png" width="200">|
-| **MyoArm**  <br>  - 27 Degree of Freedom (DoF) <br> - 63 muscles | <img src="https://github.com/MyoHub/myo_sim/assets/23240128/1f57c639-b7de-4bbb-a3c2-d2c29716e6c8" width="200">|
-| **MyoArm2d9**  <br>  - 2 Degree of Freedom (DoF) <br> - 9 muscles | <img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202502251721237.png" width="200">|
-| **MyoArm15d23**  <br>  - 15 Degree of Freedom (DoF) <br> - 23 muscles | <img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202502241936331.png" width="200">|
+| **MyoArm**  <br>  - 27 Degree of Freedom (DoF) <br> - 63 muscles | <img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202502271618571.png" width="200">|
+| **MyoArm2d9**  <br>  - 2 Degree of Freedom (DoF) <br> - 9 muscles | <img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202502271618541.png" width="200">|
+| **MyoArm15d23**  <br>  - 15 Degree of Freedom (DoF) <br> - 23 muscles | <img src="https://picgo-liusiyuan.oss-cn-beijing.aliyuncs.com/picgo-lsy/202502271618911.png" width="200">|
 | **MyoOSL**  <br>  - 19 Degree of Freedom (DoF) <br> - 54 muscles, 2 torque actuators | <img src="https://github.com/elladyr/myo_sim/assets/5383997/ec9dfc65-94ba-457f-8375-594c0e3a89b5" width="200">|
 
 
