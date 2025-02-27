@@ -2,7 +2,7 @@
 
  `MyoSim` is the library of MuJoCo Musculoskeletal Models of [MyoSuite](https://github.com/facebookresearch/myoSuite).
 
-<span style="color: red;">Here is the improved version, featuring two simplified variants of the myoarm model.</span>
+`Here is the improved version, featuring two simplified variants of the myoarm model.`
 
 The models present in the library are:
 
