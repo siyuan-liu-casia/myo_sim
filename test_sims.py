@@ -20,6 +20,12 @@ model_paths = [
 
             # arms
             "arm/myoarm.xml",
+            
+            # arm 15 dof 23 muscles
+            "arm15d23/myoarm15d23.xml",
+
+            # arm 16 dof 26 muscles
+            "arm16d26/myoarm16d26.xml",
 
             # hand models
             "hand/myohand.xml",
